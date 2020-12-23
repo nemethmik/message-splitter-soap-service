@@ -80,7 +80,8 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist #native JavaScript files are NOT required for deployment, since Azure App Service will build the JS files from TS sources on the server.
+dist 
+# native JavaScript files are NOT required for deployment, since Azure App Service will build the JS files from TS sources on the server.
 
 # Gatsby files
 .cache/
