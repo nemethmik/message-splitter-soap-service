@@ -3,5 +3,6 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/bd75d6d1-5def-49b7-b491-f75adcd8404c/resourceGroups/tiva11soapexample/providers/Microsoft.Web/sites/message-splitter-soap-service"
 }
