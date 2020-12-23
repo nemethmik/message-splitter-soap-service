@@ -2,7 +2,7 @@
   "name": "message-splitter-soap-service",
   "version": "1.0.0",
   "description": "A contract first SOAP service based on Express and node-soap written in TypeScript and deployed on Azure as App Service via GitHub",
-  "main": "dest/app.js",
+  "main": "dist/app.js",
   "scripts": {
     "start": "node .",
     "dev":"nodemon src/app.ts",
