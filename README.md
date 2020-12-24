@@ -21,9 +21,10 @@ In the example I used
 - Azure App Service
 - Azure App Service extension module for Visual Studio Code
 - ts-node, nodemon
+- WSDL, [Wizdler](https://chrome.google.com/webstore/detail/wizdler/oebpmncolmhiapingjaagmapififiakb) Google Chrome browser extension, Postman for testing SOAP requests
 - [Vinay Pulim's SOAP node package](https://github.com/vpulim/node-soap), which is still actively maintained.
 - [Nin Pham's wsdl-to-ts tool forked from the original version](https://github.com/ReeganExE/node-soap-example)
-- [Marco Galassi's SOAP Node server and client example](https://github.com/officer-rosmarino/node-soap-example) I used his example as the basis as my TypeScript solution.
+- [Marco Galassi's SOAP Node server and client example](https://github.com/officer-rosmarino/node-soap-example) I used his example as the basis for my TypeScript solution.
 
 ## Major Points and Attractions
 A major attraction here is that I combined WSDL with the elegance of TypeScript. I simply cannot imagine any serious moderately complex application development project without TypeScript. With this series I wabted to give help, how to apply TypeScript with SOAP. Since Azure App Service support for Node (with its blazing fast V8 engine) and TypeScript is first-class, as demonstrated throughout this series, I think this is the easiest to learn and lightest tool-stack for SOA development. Since Microsoft practically abandonned WCF and SOAP, it is not available in dot-net core, unfortunately, so C# is a dead end for SOAA development. Python never had any appreciatable support for SOA. Java used to have and still has excellent support for SOA via Spring Boot and Spring WS, but there the learning curve is really steep, far more complex than the technology demonstrated here.
