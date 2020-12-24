@@ -5,8 +5,9 @@
   "main": "dist/soapservice.js",
   "scripts": {
     "start": "node .",
-    "dev":"nodemon src/soapservice.ts",
-    "build":"tsc -p .",
+    "dev": "nodemon src/soapservice.ts",
+    "build": "tsc -p .",
+    "wsdl": "wsdl-to-ts ./service.wsdl --outdir=./src",
     "test": "test"
   },
   "repository": {
@@ -36,6 +37,6 @@
     "nodemon": "^2.0.6",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3",
-    "wsdl-to-ts": "^0.2.3"
+    "wsdl-to-ts": "github:ReeganExE/wsdl-to-ts"
   }
 }
