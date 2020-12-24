@@ -11,6 +11,8 @@ export interface IMessageSplitterInput {
 export interface IMessageSplitterOutput {
     /** s:string(undefined) */
     result: string[];
+    /** s:string(undefined) */
+    version: string;
 }
 
 export interface IMessageSplitterServiceSoapPortSoap extends Client {

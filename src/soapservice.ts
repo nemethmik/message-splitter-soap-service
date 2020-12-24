@@ -21,7 +21,7 @@ const splitter_function: ISoapServiceMethod = (args:IMessageSplitterInput):IMess
     const splitted_msg:string[] = args.message.split(args.splitter)
     let result = []
     for(let i = 0; i < splitted_msg.length; i++) result.push(splitted_msg[i])
-    return {result/*,version:"V1012"*/}
+    return {result,version:"V1049"}
 }
 
 const serviceObject:IAllMyServicesFromWSDL = {
