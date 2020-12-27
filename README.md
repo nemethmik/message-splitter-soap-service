@@ -7,6 +7,7 @@ First of all there is a 5-part video series revolving around this project.
 - [Deploying a SOAP Service as Azure App Service (Part 3 - CI/CD Pipeline via GitHub without Workflows)](https://youtu.be/Wntdpzegdp4)
 - [Developing a SOAP Service with Node JS TypeScript and Deploying It as Azure App Service (Part 4)](https://youtu.be/UNEVOctGbsw)
 - [Deploying a SOAP Service with Node JS TypeScript as Azure App Service (Part 5)](https://youtu.be/To9yNFrVyvM)
+- [Monitoring a SOAP Azure App Service (Part 6 - Log Streaming and Application Insights Basics)](https://youtu.be/bk6GX_VdZvk)
 
 ## Motivation
 At a major corporation I am working full time the now 20-year old SOAP services still are the primary, and actually only communications technology, no REST, no gRPC.
@@ -20,6 +21,7 @@ In the example I used
 - Visual Studio Code
 - Azure App Service
 - Azure App Service extension module for Visual Studio Code
+- Azure Application Insights
 - ts-node, nodemon
 - WSDL, [Wizdler](https://chrome.google.com/webstore/detail/wizdler/oebpmncolmhiapingjaagmapififiakb) Google Chrome browser extension, Postman for testing SOAP requests
 - [Vinay Pulim's SOAP node package](https://github.com/vpulim/node-soap), which is still actively maintained.
