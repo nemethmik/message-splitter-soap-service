@@ -1,7 +1,9 @@
 import {setup as aiSetup} from "applicationinsights"
-import express from "express"
-import fs from "fs"
+import express = require("express")
+import fs = require("fs")
 import {listen as soapListen, Server as SoapServer, IServices,ISoapServiceMethod, IService,IServicePort} from "soap"
+///*import*/const soap = require("soap")
+import * as soap from "soap"
 import type {IMessageSplitterInput,IMessageSplitterOutput} from "./MessageSplitterService/MessageSplitterServiceSoapPort"
 // import type {Express} from "express"
 // const app: Express = express()
@@ -49,5 +51,6 @@ let port: number = parseInt(process.env.PORT || "8000")
 if(isNaN(port) || port <= 0 || port >= 65536) port = 8000
 app.listen(port,() => {
     /*const soapServer: SoapServer =*/ soapListen(app, "/wsdl", serviceObject, xml)
+    soap.listen(app, "/wsdl", serviceObject, xml)
     console.log(`Open http://localhost:${port}/wsdl?wsdl in a browser to test`)
 })
