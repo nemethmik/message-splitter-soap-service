@@ -1,0 +1,8 @@
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <MessageSplitterRequest xmlns="http://tempuri.org/">
+            <message></message>
+            <splitter>,</splitter>
+        </MessageSplitterRequest>
+    </Body>
+</Envelope>
