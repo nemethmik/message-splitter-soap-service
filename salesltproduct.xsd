@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="SalesLTProductXsdSchema" xmlns:schema="SalesLTProductXsdSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sqltypes="http://schemas.microsoft.com/sqlserver/2004/sqltypes" elementFormDefault="qualified">
+  <xsd:import namespace="http://schemas.microsoft.com/sqlserver/2004/sqltypes" schemaLocation="http://schemas.microsoft.com/sqlserver/2004/sqltypes/sqltypes.xsd" />
+  <xsd:element name="SalesLT.Product">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ProductID" type="sqltypes:int" />
+        <xsd:element name="Name">
+          <xsd:simpleType sqltypes:sqlTypeAlias="[t11adventureworks].[dbo].[Name]">
+            <xsd:restriction base="sqltypes:nvarchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth" sqltypes:sqlSortId="52">
+              <xsd:maxLength value="50" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="ProductNumber">
+          <xsd:simpleType>
+            <xsd:restriction base="sqltypes:nvarchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth" sqltypes:sqlSortId="52">
+              <xsd:maxLength value="25" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Color" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="sqltypes:nvarchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth" sqltypes:sqlSortId="52">
+              <xsd:maxLength value="15" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="StandardCost" type="sqltypes:money" />
+        <xsd:element name="ListPrice" type="sqltypes:money" />
+        <xsd:element name="Size" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="sqltypes:nvarchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth" sqltypes:sqlSortId="52">
+              <xsd:maxLength value="5" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="Weight" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="sqltypes:decimal">
+              <xsd:totalDigits value="8" />
+              <xsd:fractionDigits value="2" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="ProductCategoryID" type="sqltypes:int" minOccurs="0" />
+        <xsd:element name="ProductModelID" type="sqltypes:int" minOccurs="0" />
+        <xsd:element name="SellStartDate" type="sqltypes:datetime" />
+        <xsd:element name="SellEndDate" type="sqltypes:datetime" minOccurs="0" />
+        <xsd:element name="DiscontinuedDate" type="sqltypes:datetime" minOccurs="0" />
+        <xsd:element name="ThumbNailPhoto" type="sqltypes:dbobject" minOccurs="0" />
+        <xsd:element name="ThumbnailPhotoFileName" minOccurs="0">
+          <xsd:simpleType>
+            <xsd:restriction base="sqltypes:nvarchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth" sqltypes:sqlSortId="52">
+              <xsd:maxLength value="50" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        <xsd:element name="rowguid" type="sqltypes:uniqueidentifier" />
+        <xsd:element name="ModifiedDate" type="sqltypes:datetime" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+<!--
+<SalesLT.Product xmlns="SalesLTProductXsdSchema">
+  <ProductID>680</ProductID>
+  <Name>HL Road Frame - Black, 58</Name>
+  <ProductNumber>FR-R92B-58</ProductNumber>
+  <Color>Black</Color>
+  <StandardCost>1059.3100</StandardCost>
+  <ListPrice>1431.5000</ListPrice>
+  <Size>58</Size>
+  <Weight>1016.04</Weight>
+  <ProductCategoryID>18</ProductCategoryID>
+  <ProductModelID>6</ProductModelID>
+  <SellStartDate>2002-06-01T00:00:00</SellStartDate>
+  <ThumbNailPhoto>dbobject/SalesLT.Product[@ProductID='680']/@ThumbNailPhoto</ThumbNailPhoto>
+  <ThumbnailPhotoFileName>no_image_available_small.gif</ThumbnailPhotoFileName>
+  <rowguid>43DD68D6-14A4-461F-9069-55309D90EA7E</rowguid>
+  <ModifiedDate>2008-03-11T10:01:36.827</ModifiedDate>
+</SalesLT.Product>
+<SalesLT.Product xmlns="SalesLTProductXsdSchema">
+  <ProductID>706</ProductID>
+  <Name>HL Road Frame - Red, 58</Name>
+  <ProductNumber>FR-R92R-58</ProductNumber>
+  <Color>Red</Color>
+  <StandardCost>1059.3100</StandardCost>
+  <ListPrice>1431.5000</ListPrice>
+  <Size>58</Size>
+  <Weight>1016.04</Weight>
+  <ProductCategoryID>18</ProductCategoryID>
+  <ProductModelID>6</ProductModelID>
+  <SellStartDate>2002-06-01T00:00:00</SellStartDate>
+  <ThumbNailPhoto>dbobject/SalesLT.Product[@ProductID='706']/@ThumbNailPhoto</ThumbNailPhoto>
+  <ThumbnailPhotoFileName>no_image_available_small.gif</ThumbnailPhotoFileName>
+  <rowguid>9540FF17-2712-4C90-A3D1-8CE5568B2462</rowguid>
+  <ModifiedDate>2008-03-11T10:01:36.827</ModifiedDate>
+</SalesLT.Product>
+-->

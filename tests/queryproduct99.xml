@@ -1,0 +1,8 @@
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+    <Body>
+        <QueryProductsRequest xmlns="http://tempuri.org/">
+            <fields>top 2 ProductID,Name</fields>
+            <filter>Name is not null ORDER BY NameXX Desc</filter>
+        </QueryProductsRequest>
+    </Body>
+</Envelope>

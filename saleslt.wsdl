@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <definitions> must be the root of the WSDL document 
+xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+-->
+<wsdl:definitions targetNamespace="http://tempuri.org/" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns:sqltypes="http://tempuri.org/" 
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+  xmlns:tns="http://tempuri.org/" 
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <!-- WSDL TYPES: definition of the data types that are used in the web service -->
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <xsd:simpleType name="nvarchar">
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+      <xsd:simpleType name="money">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="19"/>
+          <xsd:fractionDigits value="4"/>
+          <xsd:maxInclusive value="922337203685477.5807"/>
+          <xsd:minInclusive value="-922337203685477.5808"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="datetime">
+        <xsd:restriction base="xsd:dateTime">
+          <xsd:pattern value="((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]{2}[037])?"/>
+          <xsd:maxInclusive value="9999-12-31T23:59:59.997"/>
+          <xsd:minInclusive value="1753-01-01T00:00:00.000"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="uniqueidentifier">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="dbobject">
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:complexType name="SalesLT.Product">
+        <xsd:sequence>
+            <xsd:element name="ProductID" type="xsd:int" />
+            <xsd:element name="Name" type="sqltypes:nvarchar"/>
+            <xsd:element name="ProductNumber" type="sqltypes:nvarchar"/>
+            <xsd:element name="Color" minOccurs="0" type="sqltypes:nvarchar"/>
+            <xsd:element name="StandardCost" type="sqltypes:money" />
+            <xsd:element name="ListPrice" type="sqltypes:money" />
+            <xsd:element name="Size" minOccurs="0" type="sqltypes:nvarchar"/>
+            <xsd:element name="Weight" minOccurs="0" type="xsd:decimal"/>
+            <xsd:element name="ProductCategoryID" type="xsd:int" minOccurs="0" />
+            <xsd:element name="ProductModelID" type="xsd:int" minOccurs="0" />
+            <xsd:element name="SellStartDate" type="sqltypes:datetime" />
+            <xsd:element name="SellEndDate" type="sqltypes:datetime" minOccurs="0" />
+            <xsd:element name="DiscontinuedDate" type="sqltypes:datetime" minOccurs="0" />
+            <xsd:element name="ThumbNailPhoto" type="sqltypes:dbobject" minOccurs="0" />
+            <xsd:element name="ThumbnailPhotoFileName" minOccurs="0" type="sqltypes:nvarchar"/>
+            <xsd:element name="rowguid" type="sqltypes:uniqueidentifier" />
+            <xsd:element name="ModifiedDate" type="sqltypes:datetime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="QueryProductsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="fields" type="xsd:string"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="filter" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="QueryProductsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="unbounded" name="product" type="tns:SalesLT.Product"/>
+            <xsd:element minOccurs="0" maxOccurs="1" name="version" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <!-- MESSAGES: defines the data being exchanged between the service and client -->
+  <wsdl:message name="QueryProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryProductsRequest"/>
+  </wsdl:message>
+  <wsdl:message name="QueryProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryProductsResponse"/>
+  </wsdl:message>
+  <!-- PORT TYPES: defines the complete communication operation (one way/round trip) -->
+  <wsdl:portType name="SalesLTSoapPort">
+    <!-- The operation name must be the same as the one specified in the service object -->
+    <wsdl:operation name="QueryProducts">
+      <wsdl:input message="tns:QueryProductsSoapIn"/>
+      <wsdl:output message="tns:QueryProductsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!-- BINDING: provides details on how a portType operation will actually be transmitted.
+    This is required for SOAP UI, too.
+  -->
+  <wsdl:binding name="SalesLTServiceSoapBinding" type="tns:SalesLTSoapPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="QueryProducts">
+      <soap:operation soapAction="QueryProducts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SalesLTService">
+    <wsdl:port name="SalesLTServiceSoapPort" binding="tns:SalesLTServiceSoapBinding">
+      <soap:address location="http://localhost:8000/svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

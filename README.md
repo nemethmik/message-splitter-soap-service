@@ -26,6 +26,7 @@ In the example I used
 - Azure App Service
 - Azure App Service extension module for Visual Studio Code
 - Azure Application Insights
+- Azure SQL (t11adventureworks demo database), mssql, which uses tedious (with @types/mssql) package to perform SQL commands with async/await
 - ts-node, nodemon, npm-run-all, curl
 - WSDL, [Wizdler](https://chrome.google.com/webstore/detail/wizdler/oebpmncolmhiapingjaagmapififiakb) Google Chrome browser extension, Postman for testing SOAP requests
 - [Vinay Pulim's SOAP node package](https://github.com/vpulim/node-soap), which is still actively maintained.
